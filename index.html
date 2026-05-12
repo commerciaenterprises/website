@@ -1,255 +1,791 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commercia Travels • Discover India</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
-        body { font-family: 'Inter', system-ui, sans-serif; }
-        .heading-font { font-family: 'Playfair Display', sans-serif; }
-        .hero-bg {
-            background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.8)), 
-                              url('https://picsum.photos/id/1015/2000/1200');
-            background-size: cover;
-            background-position: center;
-        }
-        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover:hover { transform: translateY(-12px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commercia Travels | Discover Incredible India</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    h1,h2,h3,h4 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero-bg {
+      background-image:
+      linear-gradient(to right, rgba(15,23,42,0.75), rgba(15,23,42,0.55)),
+      url('https://images.unsplash.com/photo-1506461883276-594a12b11cf3?q=80&w=1974&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .glass {
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      transition: 0.4s ease;
+    }
+
+    .modal-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .modal-scroll::-webkit-scrollbar-thumb {
+      background: #f97316;
+      border-radius: 10px;
+    }
+  </style>
 </head>
-<body class="bg-zinc-50 text-slate-800">
 
-    <!-- NAVBAR -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-orange-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold">C</div>
-                    <div>
-                        <span class="heading-font text-3xl font-semibold tracking-tight">Commercia</span>
-                        <span class="text-xs text-slate-500 tracking-widest block -mt-1">TRAVELS</span>
-                    </div>
-                </div>
+<body class="bg-white text-slate-800">
 
-                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="#destinations" class="hover:text-orange-600">Destinations</a>
-                    <a href="#tours" class="hover:text-orange-600">Signature Tours</a>
-                    <a href="#deals" class="hover:text-orange-600">Deals</a>
-                </div>
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-                <a href="#tours" class="px-6 py-3 bg-slate-900 hover:bg-orange-600 text-white text-sm font-semibold rounded-2xl">
-                    Plan Your Trip
-                </a>
-            </div>
-        </div>
-    </nav>
+      <div class="text-2xl font-bold text-white tracking-wide">
+        <span class="text-orange-500">Commercia</span> Travels
+      </div>
 
-    <!-- HERO -->
-    <header class="hero-bg h-screen flex items-center text-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h1 class="heading-font text-6xl md:text-7xl font-semibold leading-tight mb-6">
-                Discover the soul<br>of Incredible India
-            </h1>
-            <p class="text-xl md:text-2xl max-w-xl mx-auto mb-10">
-                Premium curated domestic travel experiences with detailed itineraries
-            </p>
-            <a href="#tours" class="inline-block px-10 py-5 bg-orange-600 hover:bg-orange-700 text-lg font-semibold rounded-3xl">
-                Explore Tours
-            </a>
-        </div>
-    </header>
+      <div class="hidden md:flex gap-8 text-sm font-medium text-slate-200">
+        <a href="#destinations" class="hover:text-orange-400 transition">Destinations</a>
+        <a href="#tours" class="hover:text-orange-400 transition">Tours</a>
+        <a href="#deals" class="hover:text-orange-400 transition">Deals</a>
+        <a href="#upcoming" class="hover:text-orange-400 transition">Upcoming</a>
+      </div>
 
-    <!-- DESTINATIONS -->
-    <section id="destinations" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="heading-font text-5xl font-semibold">Featured Destinations</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg">
-                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/800x600/?kerala-houseboat')"></div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold">Kerala Backwaters</h3>
-                        <p class="text-slate-500">7 Days • From ₹48,900</p>
-                        <button onclick="showItinerary('Kerala Backwaters', 48900)" class="mt-6 w-full py-4 bg-slate-900 text-white rounded-2xl hover:bg-orange-600">View Itinerary</button>
-                    </div>
-                </div>
+      <button onclick="openEnquiry()" class="bg-orange-500 hover:bg-orange-600 transition text-white px-5 py-2 rounded-full text-sm font-semibold shadow-lg">
+        Plan Your Trip
+      </button>
 
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg">
-                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/800x600/?pangong-lake')"></div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold">Ladakh Adventure</h3>
-                        <p class="text-slate-500">8 Days • From ₹62,500</p>
-                        <button onclick="showItinerary('Ladakh Adventure', 62500)" class="mt-6 w-full py-4 bg-slate-900 text-white rounded-2xl hover:bg-orange-600">View Itinerary</button>
-                    </div>
-                </div>
-
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg">
-                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/800x600/?rajasthan-palace')"></div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold">Rajasthan Royal Tour</h3>
-                        <p class="text-slate-500">9 Days • From ₹55,000</p>
-                        <button onclick="showItinerary('Rajasthan Royal Tour', 55000)" class="mt-6 w-full py-4 bg-slate-900 text-white rounded-2xl hover:bg-orange-600">View Itinerary</button>
-                    </div>
-                </div>
-
-                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-lg">
-                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/800x600/?goa-beach')"></div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold">Goa Beach Escape</h3>
-                        <p class="text-slate-500">5 Days • From ₹28,900</p>
-                        <button onclick="showItinerary('Goa Beach Escape', 28900)" class="mt-6 w-full py-4 bg-slate-900 text-white rounded-2xl hover:bg-orange-600">View Itinerary</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ITINERARY MODAL -->
-    <div id="itineraryModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 overflow-auto">
-        <div class="bg-white rounded-3xl max-w-2xl w-full mx-4 my-8">
-            <div class="p-8 border-b flex justify-between items-center">
-                <div>
-                    <h3 class="text-3xl font-semibold" id="packageName"></h3>
-                    <p class="text-orange-600 font-medium" id="packagePrice"></p>
-                </div>
-                <button onclick="closeItineraryModal()" class="text-3xl text-slate-400 hover:text-slate-600">×</button>
-            </div>
-            
-            <div class="p-8 max-h-[70vh] overflow-auto" id="itineraryContent">
-                <!-- Dynamic content will be injected here by JavaScript -->
-            </div>
-
-            <div class="p-8 border-t flex gap-4">
-                <button onclick="closeItineraryModal()" 
-                        class="flex-1 py-4 border border-slate-300 rounded-2xl font-medium">
-                    Close
-                </button>
-                <button onclick="enquireFromItinerary()" 
-                        class="flex-1 py-4 bg-orange-600 text-white rounded-2xl font-semibold">
-                    Enquire Now
-                </button>
-            </div>
-        </div>
     </div>
+  </nav>
 
-    <!-- Success Modal -->
-    <div id="successModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-        <div class="bg-white rounded-3xl p-10 max-w-md w-full mx-4 text-center">
-            <i class="fa-solid fa-circle-check text-6xl text-green-500 mb-6"></i>
-            <h3 class="text-2xl font-semibold mb-3">Thank You!</h3>
-            <p class="text-slate-600">Your enquiry has been received. Our travel expert will contact you shortly.</p>
-            <button onclick="closeSuccessModal()" class="mt-8 px-10 py-4 bg-slate-900 text-white rounded-2xl">
-                Close
+  <!-- Hero -->
+  <section class="hero-bg min-h-screen flex items-center justify-center text-center px-6">
+    <div class="max-w-4xl text-white">
+
+      <p class="uppercase tracking-[4px] text-orange-400 mb-5 text-sm">
+        Luxury Domestic Experiences
+      </p>
+
+      <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+        Discover the Soul of Incredible India
+      </h1>
+
+      <p class="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto mb-10">
+        Curated journeys across majestic mountains, royal palaces, serene backwaters, and breathtaking coastlines.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#destinations" class="bg-orange-500 hover:bg-orange-600 transition px-8 py-4 rounded-full text-white font-semibold shadow-xl">
+          Explore Destinations
+        </a>
+
+        <button onclick="openEnquiry()" class="border border-white hover:bg-white hover:text-slate-900 transition px-8 py-4 rounded-full font-semibold">
+          Speak To Expert
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Featured Destinations -->
+  <section id="destinations" class="py-24 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Featured Destinations</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Handpicked experiences crafted for unforgettable Indian journeys.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- Card -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover">
+          <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1974&auto=format&fit=crop"
+          class="h-60 w-full object-cover">
+
+          <div class="p-6">
+            <h3 class="text-2xl mb-2 font-bold">Kerala Backwaters</h3>
+            <p class="text-slate-500 mb-4">Starting from ₹28,999</p>
+
+            <button onclick="openPackage('Kerala Backwaters', '₹28,999', keralaItinerary)"
+            class="w-full bg-orange-500 hover:bg-orange-600 transition text-white py-3 rounded-xl font-semibold">
+              View Itinerary
             </button>
+          </div>
         </div>
+
+        <!-- Card -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover">
+          <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1974&auto=format&fit=crop"
+          class="h-60 w-full object-cover">
+
+          <div class="p-6">
+            <h3 class="text-2xl mb-2 font-bold">Ladakh Adventure</h3>
+            <p class="text-slate-500 mb-4">Starting from ₹42,999</p>
+
+            <button onclick="openPackage('Ladakh Adventure', '₹42,999', ladakhItinerary)"
+            class="w-full bg-orange-500 hover:bg-orange-600 transition text-white py-3 rounded-xl font-semibold">
+              View Itinerary
+            </button>
+          </div>
+        </div>
+
+        <!-- Card -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover">
+          <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1974&auto=format&fit=crop"
+          class="h-60 w-full object-cover">
+
+          <div class="p-6">
+            <h3 class="text-2xl mb-2 font-bold">Rajasthan Royal Tour</h3>
+            <p class="text-slate-500 mb-4">Starting from ₹36,499</p>
+
+            <button onclick="openPackage('Rajasthan Royal Tour', '₹36,499', rajasthanItinerary)"
+            class="w-full bg-orange-500 hover:bg-orange-600 transition text-white py-3 rounded-xl font-semibold">
+              View Itinerary
+            </button>
+          </div>
+        </div>
+
+        <!-- Card -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover">
+          <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1974&auto=format&fit=crop"
+          class="h-60 w-full object-cover">
+
+          <div class="p-6">
+            <h3 class="text-2xl mb-2 font-bold">Goa Beach Escape</h3>
+            <p class="text-slate-500 mb-4">Starting from ₹19,999</p>
+
+            <button onclick="openPackage('Goa Beach Escape', '₹19,999', goaItinerary)"
+            class="w-full bg-orange-500 hover:bg-orange-600 transition text-white py-3 rounded-xl font-semibold">
+              View Itinerary
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Tours -->
+  <section id="tours" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Signature Tours</h2>
+        <p class="text-slate-600">Premium experiences designed by travel experts.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="rounded-3xl overflow-hidden shadow-2xl relative group">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1974&auto=format&fit=crop"
+          class="h-96 w-full object-cover group-hover:scale-110 transition duration-700">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+          <div class="absolute bottom-0 p-8 text-white">
+            <h3 class="text-3xl font-bold mb-3">Himalayan Luxury Retreat</h3>
+            <button onclick="openPackage('Himalayan Luxury Retreat', '₹58,999', ladakhItinerary)"
+            class="bg-orange-500 hover:bg-orange-600 px-5 py-3 rounded-full font-semibold">
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden shadow-2xl relative group">
+          <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1974&auto=format&fit=crop"
+          class="h-96 w-full object-cover group-hover:scale-110 transition duration-700">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+          <div class="absolute bottom-0 p-8 text-white">
+            <h3 class="text-3xl font-bold mb-3">Royal Heritage Journey</h3>
+            <button onclick="openPackage('Royal Heritage Journey', '₹49,999', rajasthanItinerary)"
+            class="bg-orange-500 hover:bg-orange-600 px-5 py-3 rounded-full font-semibold">
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden shadow-2xl relative group">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1974&auto=format&fit=crop"
+          class="h-96 w-full object-cover group-hover:scale-110 transition duration-700">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+          <div class="absolute bottom-0 p-8 text-white">
+            <h3 class="text-3xl font-bold mb-3">Coastal Paradise Escape</h3>
+            <button onclick="openPackage('Coastal Paradise Escape', '₹31,999', goaItinerary)"
+            class="bg-orange-500 hover:bg-orange-600 px-5 py-3 rounded-full font-semibold">
+              Book Now
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Deals -->
+  <section id="deals" class="py-24 px-6 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Special Deals</h2>
+        <p class="text-slate-300">Limited-time offers crafted for smart travelers.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+          <span class="bg-orange-500 text-white px-4 py-1 rounded-full text-sm">
+            20% OFF
+          </span>
+
+          <h3 class="text-3xl font-bold mt-6 mb-3">Summer Kashmir</h3>
+
+          <p class="text-slate-300 mb-6">
+            5 nights luxury stay with scenic tours and premium experiences.
+          </p>
+
+          <div class="text-2xl font-bold text-orange-400">
+            ₹44,999
+          </div>
+        </div>
+
+        <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+          <span class="bg-orange-500 text-white px-4 py-1 rounded-full text-sm">
+            Family Offer
+          </span>
+
+          <h3 class="text-3xl font-bold mt-6 mb-3">Kerala Family Escape</h3>
+
+          <p class="text-slate-300 mb-6">
+            Complimentary houseboat dinner and airport pickup.
+          </p>
+
+          <div class="text-2xl font-bold text-orange-400">
+            ₹39,999
+          </div>
+        </div>
+
+        <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+          <span class="bg-orange-500 text-white px-4 py-1 rounded-full text-sm">
+            Honeymoon
+          </span>
+
+          <h3 class="text-3xl font-bold mt-6 mb-3">Goa Romantic Retreat</h3>
+
+          <p class="text-slate-300 mb-6">
+            Beachside luxury resort with candlelight dinner included.
+          </p>
+
+          <div class="text-2xl font-bold text-orange-400">
+            ₹27,999
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming -->
+  <section id="upcoming" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Upcoming Departures</h2>
+      </div>
+
+      <div class="space-y-6">
+
+        <div class="border rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between hover:shadow-xl transition">
+          <div>
+            <h3 class="text-2xl font-bold">Leh-Ladakh Explorer</h3>
+            <p class="text-slate-500">Departure: 18 June 2026</p>
+          </div>
+
+          <div class="mt-4 md:mt-0">
+            <span class="bg-orange-100 text-orange-700 px-4 py-2 rounded-full font-semibold">
+              12 Seats Left
+            </span>
+          </div>
+        </div>
+
+        <div class="border rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between hover:shadow-xl transition">
+          <div>
+            <h3 class="text-2xl font-bold">Royal Rajasthan Trail</h3>
+            <p class="text-slate-500">Departure: 2 July 2026</p>
+          </div>
+
+          <div class="mt-4 md:mt-0">
+            <span class="bg-orange-100 text-orange-700 px-4 py-2 rounded-full font-semibold">
+              Filling Fast
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">What Our Travelers Say</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="bg-white p-8 rounded-3xl shadow-lg">
+          <div class="text-orange-500 text-xl mb-4">
+            ★★★★★
+          </div>
+
+          <p class="text-slate-600 mb-6">
+            “The Kerala houseboat experience was magical. Everything was seamless and luxurious.”
+          </p>
+
+          <h4 class="font-bold text-lg">Ritika Sharma</h4>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl shadow-lg">
+          <div class="text-orange-500 text-xl mb-4">
+            ★★★★★
+          </div>
+
+          <p class="text-slate-600 mb-6">
+            “Best travel company we've experienced in India. Exceptional planning and hospitality.”
+          </p>
+
+          <h4 class="font-bold text-lg">Aman Verma</h4>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl shadow-lg">
+          <div class="text-orange-500 text-xl mb-4">
+            ★★★★★
+          </div>
+
+          <p class="text-slate-600 mb-6">
+            “Our Rajasthan trip felt royal in every sense. Premium hotels and fantastic guides.”
+          </p>
+
+          <h4 class="font-bold text-lg">Neha Kapoor</h4>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto text-center">
+
+      <h2 class="text-4xl font-bold mb-14">
+        Why Choose Commercia Travels
+      </h2>
+
+      <div class="grid md:grid-cols-4 gap-8">
+
+        <div>
+          <div class="text-orange-500 text-5xl mb-5">
+            <i class="fa-solid fa-earth-asia"></i>
+          </div>
+
+          <h3 class="text-xl font-bold mb-3">Curated Experiences</h3>
+
+          <p class="text-slate-600">
+            Personalized itineraries designed by travel experts.
+          </p>
+        </div>
+
+        <div>
+          <div class="text-orange-500 text-5xl mb-5">
+            <i class="fa-solid fa-hotel"></i>
+          </div>
+
+          <h3 class="text-xl font-bold mb-3">Luxury Stays</h3>
+
+          <p class="text-slate-600">
+            Premium hotels, resorts and boutique experiences.
+          </p>
+        </div>
+
+        <div>
+          <div class="text-orange-500 text-5xl mb-5">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+
+          <h3 class="text-xl font-bold mb-3">24/7 Support</h3>
+
+          <p class="text-slate-600">
+            Dedicated travel assistance throughout your journey.
+          </p>
+        </div>
+
+        <div>
+          <div class="text-orange-500 text-5xl mb-5">
+            <i class="fa-solid fa-shield-heart"></i>
+          </div>
+
+          <h3 class="text-xl font-bold mb-3">Trusted Brand</h3>
+
+          <p class="text-slate-600">
+            Thousands of happy travelers across India.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-slate-300 py-16 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
+
+      <div>
+        <h3 class="text-3xl font-bold text-white mb-4">
+          <span class="text-orange-500">Commercia</span> Travels
+        </h3>
+
+        <p class="text-slate-400">
+          Creating unforgettable domestic travel experiences across India.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white mb-4">Quick Links</h4>
+
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-orange-400">About Us</a></li>
+          <li><a href="#" class="hover:text-orange-400">Tours</a></li>
+          <li><a href="#" class="hover:text-orange-400">Destinations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white mb-4">Contact</h4>
+
+        <ul class="space-y-2">
+          <li>+91 98765 43210</li>
+          <li>hello@commerciatravels.in</li>
+          <li>New Delhi, India</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white mb-4">Follow Us</h4>
+
+        <div class="flex gap-4 text-xl">
+          <i class="fab fa-instagram hover:text-orange-400 cursor-pointer"></i>
+          <i class="fab fa-facebook hover:text-orange-400 cursor-pointer"></i>
+          <i class="fab fa-youtube hover:text-orange-400 cursor-pointer"></i>
+        </div>
+      </div>
+
     </div>
 
-    <script>
-        const packages = {
-            "Kerala Backwaters": {
-                price: "₹48,900",
-                duration: "7 Days",
-                itinerary: `
-                    <div class="space-y-8">
-                        <div><strong>Day 1:</strong> Arrival in Cochin → Transfer to Munnar</div>
-                        <div><strong>Day 2-3:</strong> Munnar Tea Plantations, Eravikulam National Park &amp; Spice Garden</div>
-                        <div><strong>Day 4-6:</strong> Alleppey Houseboat Stay on Backwaters</div>
-                        <div><strong>Day 7:</strong> Departure from Cochin</div>
-                        <hr>
-                        <div class="text-sm text-slate-600">
-                            <strong>Includes:</strong> Accommodation, Houseboat stay, All meals, AC Transport, Expert Guide
-                        </div>
-                    </div>
-                `
-            },
-            "Ladakh Adventure": {
-                price: "₹62,500",
-                duration: "8 Days",
-                itinerary: `
-                    <div class="space-y-8">
-                        <div><strong>Day 1:</strong> Arrival in Leh, Acclimatization</div>
-                        <div><strong>Day 2-3:</strong> Nubra Valley &amp; Diskit Monastery</div>
-                        <div><strong>Day 4:</strong> Pangong Lake (Overnight Camp)</div>
-                        <div><strong>Day 5-6:</strong> Tso Moriri Lake &amp; Magnetic Hill</div>
-                        <div><strong>Day 7:</strong> Local Market &amp; Monasteries</div>
-                        <div><strong>Day 8:</strong> Departure</div>
-                        <hr>
-                        <div class="text-sm text-slate-600">
-                            <strong>Includes:</strong> Permits, 4x4 Transport, Oxygen Cylinder, Hotel + Camping, Meals
-                        </div>
-                    </div>
-                `
-            },
-            "Rajasthan Royal Tour": {
-                price: "₹55,000",
-                duration: "9 Days",
-                itinerary: `
-                    <div class="space-y-8">
-                        <div><strong>Day 1-2:</strong> Delhi Sightseeing</div>
-                        <div><strong>Day 3-4:</strong> Agra – Taj Mahal &amp; Fort</div>
-                        <div><strong>Day 5-7:</strong> Jaipur – Amber Fort, City Palace, Hawa Mahal</div>
-                        <div><strong>Day 8:</strong> Udaipur – Lake Pichola Boat Ride</div>
-                        <div><strong>Day 9:</strong> Departure from Udaipur</div>
-                        <hr>
-                        <div class="text-sm text-slate-600">
-                            <strong>Includes:</strong> Heritage hotels, All entry tickets, AC Coach, Professional Guide
-                        </div>
-                    </div>
-                `
-            },
-            "Goa Beach Escape": {
-                price: "₹28,900",
-                duration: "5 Days",
-                itinerary: `
-                    <div class="space-y-8">
-                        <div><strong>Day 1:</strong> Arrival in Goa → North Goa Beaches</div>
-                        <div><strong>Day 2:</strong> South Goa Exploration</div>
-                        <div><strong>Day 3:</strong> Dudhsagar Waterfalls &amp; Wildlife Sanctuary</div>
-                        <div><strong>Day 4:</strong> Beach Relaxation + Water Sports</div>
-                        <div><strong>Day 5:</strong> Departure</div>
-                        <hr>
-                        <div class="text-sm text-slate-600">
-                            <strong>Includes:</strong> Beach Resort, Breakfast, Transfers, Sightseeing
-                        </div>
-                    </div>
-                `
-            }
-        };
+    <div class="border-t border-slate-800 mt-14 pt-8 text-center text-slate-500">
+      © 2026 Commercia Travels. All rights reserved.
+    </div>
+  </footer>
 
-        function showItinerary(packageName, price) {
-            const pkg = packages[packageName];
-            document.getElementById('packageName').textContent = packageName;
-            document.getElementById('packagePrice').innerHTML = `${pkg.duration} • ${pkg.price} per person`;
-            document.getElementById('itineraryContent').innerHTML = pkg.itinerary;
-            document.getElementById('itineraryModal').classList.remove('hidden');
-        }
+  <!-- PACKAGE MODAL -->
+  <div id="packageModal"
+  class="fixed inset-0 hidden items-center justify-center bg-black/70 z-50 px-4">
 
-        function closeItineraryModal() {
-            document.getElementById('itineraryModal').classList.add('hidden');
-        }
+    <div class="bg-white max-w-3xl w-full rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col">
 
-        function enquireFromItinerary() {
-            closeItineraryModal();
-            setTimeout(() => {
-                document.getElementById('successModal').classList.remove('hidden');
-            }, 400);
-        }
+      <div class="flex justify-between items-center p-6 border-b">
+        <div>
+          <h3 id="packageTitle" class="text-3xl font-bold"></h3>
+          <p id="packagePrice" class="text-orange-500 font-semibold text-lg"></p>
+        </div>
 
-        function closeSuccessModal() {
-            document.getElementById('successModal').classList.add('hidden');
-        }
+        <button onclick="closePackageModal()" class="text-2xl text-slate-500 hover:text-red-500">
+          &times;
+        </button>
+      </div>
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "Escape") {
-                closeItineraryModal();
-                closeSuccessModal();
-            }
-        });
-    </script>
+      <div class="p-6 overflow-y-auto modal-scroll">
+
+        <div id="packageContent" class="space-y-4 text-slate-700"></div>
+
+        <div class="mt-8">
+          <h4 class="font-bold text-xl mb-4">What's Included</h4>
+
+          <ul class="space-y-2 text-slate-600">
+            <li>✔ Luxury hotel accommodation</li>
+            <li>✔ Daily breakfast & dinner</li>
+            <li>✔ Guided sightseeing tours</li>
+            <li>✔ Airport & local transfers</li>
+            <li>✔ Dedicated travel assistance</li>
+          </ul>
+        </div>
+
+        <button onclick="openEnquiry()"
+        class="mt-8 w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-semibold text-lg">
+          Enquire Now
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ENQUIRY MODAL -->
+  <div id="enquiryModal"
+  class="fixed inset-0 hidden items-center justify-center bg-black/70 z-50 px-4">
+
+    <div class="bg-white rounded-3xl p-8 w-full max-w-lg relative">
+
+      <button onclick="closeEnquiry()"
+      class="absolute right-5 top-4 text-2xl text-slate-500">
+        &times;
+      </button>
+
+      <h3 class="text-3xl font-bold mb-2">
+        Plan Your Dream Trip
+      </h3>
+
+      <p class="text-slate-500 mb-6">
+        Our travel expert will contact you shortly.
+      </p>
+
+      <form id="enquiryForm" class="space-y-5">
+
+        <input type="text"
+        placeholder="Full Name"
+        required
+        class="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400">
+
+        <input type="email"
+        placeholder="Email Address"
+        required
+        class="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400">
+
+        <input type="tel"
+        placeholder="Phone Number"
+        required
+        class="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400">
+
+        <textarea
+        placeholder="Tell us about your dream destination..."
+        rows="4"
+        class="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"></textarea>
+
+        <button type="submit"
+        class="w-full bg-orange-500 hover:bg-orange-600 transition text-white py-4 rounded-xl font-semibold">
+          Submit Enquiry
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div id="successModal"
+  class="fixed inset-0 hidden items-center justify-center bg-black/70 z-50 px-4">
+
+    <div class="bg-white rounded-3xl p-10 text-center max-w-md">
+
+      <div class="text-6xl text-green-500 mb-5">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+
+      <h3 class="text-3xl font-bold mb-4">
+        Thank You!
+      </h3>
+
+      <p class="text-slate-600 mb-8">
+        Our travel expert will contact you shortly.
+      </p>
+
+      <button onclick="closeSuccess()"
+      class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-semibold">
+        Close
+      </button>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    const keralaItinerary = `
+      <div>
+        <h4 class="font-bold text-lg">Day 1</h4>
+        <p>Arrival in Kochi and transfer to luxury resort in Munnar.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 2</h4>
+        <p>Tea plantation tour and scenic waterfalls exploration.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 3</h4>
+        <p>Houseboat cruise through Alleppey backwaters.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 4</h4>
+        <p>Leisure day with Ayurvedic spa and cultural performances.</p>
+      </div>
+    `;
+
+    const ladakhItinerary = `
+      <div>
+        <h4 class="font-bold text-lg">Day 1</h4>
+        <p>Arrival in Leh with acclimatization and local sightseeing.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 2</h4>
+        <p>Visit Magnetic Hill and Hall of Fame Museum.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 3</h4>
+        <p>Drive to Pangong Lake with overnight luxury camp stay.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 4</h4>
+        <p>Nubra Valley exploration and ATV adventures.</p>
+      </div>
+    `;
+
+    const rajasthanItinerary = `
+      <div>
+        <h4 class="font-bold text-lg">Day 1</h4>
+        <p>Arrival in Jaipur and royal palace visit.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 2</h4>
+        <p>Amber Fort tour with cultural evening.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 3</h4>
+        <p>Transfer to Udaipur and lake cruise experience.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 4</h4>
+        <p>Explore City Palace and luxury heritage dining.</p>
+      </div>
+    `;
+
+    const goaItinerary = `
+      <div>
+        <h4 class="font-bold text-lg">Day 1</h4>
+        <p>Beach resort check-in and sunset dinner.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 2</h4>
+        <p>North Goa sightseeing and water sports.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 3</h4>
+        <p>South Goa churches and beach hopping.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg">Day 4</h4>
+        <p>Relaxation day with spa and beachside leisure.</p>
+      </div>
+    `;
+
+    function openPackage(title, price, itinerary) {
+      document.getElementById('packageModal').classList.remove('hidden');
+      document.getElementById('packageModal').classList.add('flex');
+
+      document.getElementById('packageTitle').innerText = title;
+      document.getElementById('packagePrice').innerText = price;
+
+      document.getElementById('packageContent').innerHTML = itinerary;
+    }
+
+    function closePackageModal() {
+      document.getElementById('packageModal').classList.add('hidden');
+      document.getElementById('packageModal').classList.remove('flex');
+    }
+
+    function openEnquiry() {
+      document.getElementById('enquiryModal').classList.remove('hidden');
+      document.getElementById('enquiryModal').classList.add('flex');
+    }
+
+    function closeEnquiry() {
+      document.getElementById('enquiryModal').classList.add('hidden');
+      document.getElementById('enquiryModal').classList.remove('flex');
+    }
+
+    function closeSuccess() {
+      document.getElementById('successModal').classList.add('hidden');
+      document.getElementById('successModal').classList.remove('flex');
+    }
+
+    document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      closeEnquiry();
+
+      document.getElementById('successModal').classList.remove('hidden');
+      document.getElementById('successModal').classList.add('flex');
+
+      this.reset();
+    });
+
+    // Close modal on outside click
+    window.onclick = function(event) {
+
+      const packageModal = document.getElementById('packageModal');
+      const enquiryModal = document.getElementById('enquiryModal');
+      const successModal = document.getElementById('successModal');
+
+      if (event.target === packageModal) {
+        closePackageModal();
+      }
+
+      if (event.target === enquiryModal) {
+        closeEnquiry();
+      }
+
+      if (event.target === successModal) {
+        closeSuccess();
+      }
+    };
+
+  </script>
+
 </body>
 </html>
